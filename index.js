@@ -116,7 +116,7 @@ const StitchProductFetcher = (() => {
         committedStock: +variant.committed_stock,
         availableStock: +variant.available,
         totalSold: +variant.total_sold,
-        averageCost: +variant.average_cost,
+        averageCost: (parseFloat(variant.average_cost) > 0) ? +variant.average_cost : +variant.supplier_cost,
         lastUpdated: new Date(variant.updated_at),
       }));
     }
